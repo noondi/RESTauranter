@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model restauranter.Models.Review
+<!-- Way to display errors without doing an actual 4loop -->
+<!-- <div asp-validation-summary="All"></div> -->
+
+<div class="container"><br>
+<div class="jumbotron">
+    <h1>Write a new Review:</h1>
+    <form action="/add" method="POST">
+        <label asp-for="reviewer_name"></label>
+        <input asp-for="reviewer_name" class="form-control">
+        <span asp-validation-for="reviewer_name" class="text-danger"></span><br>
+
+        <label asp-for="restaurant_name"></label>
+        <input asp-for="restaurant_name" class="form-control">
+        <span asp-validation-for="restaurant_name" class="text-danger"></span><br>
+  
+        <label asp-for="review"></label>
+        <textarea asp-for="review" class="form-control" cols="30" rows="3"></textarea>
+        <span asp-validation-for="review" class="text-danger"></span>
+        <br>
+
+        <label asp-for="created_at"></label>
+        <input asp-for="created_at" class="form-control" type="date">
+        <span asp-validation-for="created_at" class="text-danger"></span>
+        <br>   
+
+        <label asp-for="rate"></label>
+        <select asp-for="rate" class="form-control">
+            <option value="Select a rating" hidden></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span asp-validation-for="rate" class="text-danger"></span>
+        <br>
+            
+        <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+<!-- 
+     <br>
+     Status: <select name="status">
+         <option value="Done">Done</option>
+         <option value="Pending">Pending</option>
+         <option value="Missed">Missed</option>
+     </select>
+     <br> -->

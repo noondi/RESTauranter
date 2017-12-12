@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Reviews";
+}
+@model IEnumerable<restauranter.Models.Review>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Reviews</h1>
+@foreach (var r in Model){
+    <p>Review for: @r.restaurant_name | Stars: @r.rate</p>
+    <p>Reviewer: @r.reviewer_name, @r.created_at</p>
+    <p>@r.review</p>
+    <hr>
+}
+    </div>
+</div>
